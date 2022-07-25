@@ -1,13 +1,14 @@
-import logo from './logo.svg';
+
 import './App.css';
-import './NavBar.js'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import NavbarComp from './Components/NavbarComp';
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Navbar />
-      </Router>
+
+      <NavbarComp />
+
     </div>
   );
 }
