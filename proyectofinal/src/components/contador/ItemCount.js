@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 // hooks
 
-function ItemCount() {
-    const [contador, setContador] = useState(0);
-    const [contador2, setContador2] = useState(0);
+const ItemCount = () => {
+    const [contador, setContador] = useState(1);
+
 
     useEffect(() => {
         console.log('%c    Renderizado Siempre', 'color: #38761d');
@@ -22,19 +22,18 @@ function ItemCount() {
         return () => {
             console.log('Contador listo para ser cleanup!');
         }
-    }, [contador2]);
-    useEffect(() => {
-        console.log('>>>>> Contador mounted!');
-        return () => {
-            console.log('Contador listo para ser cleanup!');
-        }
     }, []);
 
     function agregarAlContador() {
         setContador(contador + 1);
     }
     function restarAlContador() {
-        setContador(contador - 1);
+
+        if (contador <= 1) {
+            setContador(1)
+        } else {
+            setContador(contador - 1)
+        };
     }
 
     console.log('Contador listo para el render');
@@ -43,7 +42,7 @@ function ItemCount() {
         <div>
 
 
-            <div><button onClick={restarAlContador}>-</button>{contador}<button onClick={agregarAlContador}>+</button></div>
+            <div><button className='btn btn-primary' onClick={restarAlContador}>-</button>{contador}<button className='btn btn-primary' onClick={agregarAlContador}>+</button></div>
 
 
 
