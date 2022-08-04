@@ -10,11 +10,11 @@ const NavBar = () => {
 
         <Navbar bg="dark" expand="lg">
             <Container>
-                <Navbar.Brand href="#home"><Badge bg="secondary">PC SHOP</Badge></Navbar.Brand>
+                <Navbar.Brand href="#home"><Badge bg="dark">PC SHOP</Badge></Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
-                        <CartWidget />
+                    <Nav className="me-auto ">
+                        <CartWidget className="d-flex justify-content-end" />
                     </Nav>
                 </Navbar.Collapse>
             </Container>

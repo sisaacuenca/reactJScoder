@@ -4,7 +4,7 @@ import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
 const CartWidget = () => {
     return (
-        <Button variant="outline-secondary"><FontAwesomeIcon icon={faCartShopping} /><Badge bg="secondary">0</Badge></Button>
+        <Button variant="outline-primary"><FontAwesomeIcon icon={faCartShopping} /><Badge bg="primary">0</Badge></Button>
     )
 }
 export default CartWidget

@@ -1,10 +1,14 @@
 import getFetch from "../data/Data"
 import ItemList from "../itemList/ItemList"
+import Spinner from 'react-bootstrap/Spinner';
+
+import CardGroup from 'react-bootstrap/CardGroup';
+
 import { useEffect, useState } from 'react'
 
 function ItemListContainer() {
     const [data, setData] = useState([])
-    const { loading, setLoading } = useState(true)
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         getFetch
@@ -15,13 +19,18 @@ function ItemListContainer() {
 
 
     return (
-        <div>
+        <CardGroup>
             {
-                loading ? <h4>---Cargando---</h4> :
-                    data.map(prod => <ItemList key={prod.id} id={prod.id} nombre={prod.nombre} precio={prod.precio} imagen={prod.img} stock={prod.stock} />)
+                loading ?
+
+
+                    <Spinner animation="border" role="status">
+                        <span>Loading...</span>
+                    </Spinner>
+                    : data.map(prod => <ItemList key={prod.id} id={prod.id} nombre={prod.nombre} precio={prod.precio} imagen={prod.img} stock={prod.stock} />)
             }
 
-        </div>
+        </CardGroup>
     )
 
 } export default ItemListContainer

@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 
 // hooks
 
-const ItemCount = () => {
+const ItemCount = (stock) => {
     const [contador, setContador] = useState(1);
 
 
@@ -13,21 +13,16 @@ const ItemCount = () => {
             console.log('Contador listo para ser cleanup!');
         }
     });
-    useEffect(() => {
-        console.log('%c    >>>>> Renderizado Contador', 'color: #00761d');
-        return () => {
-            console.log('Contador listo para ser cleanup!');
-        }
-    }, [contador]);
-    useEffect(() => {
-        console.log('%c    >>>>> Renderizado contador2', 'color: #38001d');
-        return () => {
-            console.log('Contador listo para ser cleanup!');
-        }
-    }, []);
+
 
     function agregarAlContador() {
-        setContador(contador + 1);
+        if (contador <= stock) {
+            setContador(contador)
+            console.log("sin stock")
+        } else {
+            setContador(contador + 1);
+        }
+
     }
     function restarAlContador() {
 
@@ -41,14 +36,7 @@ const ItemCount = () => {
     console.log('Contador listo para el render');
 
     return (
-        <div>
-
-
-            <div><Button variant="dark" onClick={restarAlContador}>-</Button>{contador}<Button variant="dark" onClick={agregarAlContador}>+</Button></div>
-
-
-
-        </div >
+        <div><Button variant="dark" onClick={restarAlContador}>-</Button>{contador}<Button variant="dark" onClick={agregarAlContador}>+</Button></div>
     );
 }
 /*
