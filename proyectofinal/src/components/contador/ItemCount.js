@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import Button from 'react-bootstrap/Button';
+
 // hooks
 
 const ItemCount = () => {
@@ -42,11 +44,11 @@ const ItemCount = () => {
         <div>
 
 
-            <div><button className='btn btn-primary' onClick={restarAlContador}>-</button>{contador}<button className='btn btn-primary' onClick={agregarAlContador}>+</button></div>
+            <div><Button variant="dark" onClick={restarAlContador}>-</Button>{contador}<Button variant="dark" onClick={agregarAlContador}>+</Button></div>
 
 
 
-        </div>
+        </div >
     );
 }
 /*

@@ -1,28 +1,25 @@
 import React from 'react'
+import CartWidget from '../CartWidget/CartWidget'
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import Badge from 'react-bootstrap/Badge';
 
 const NavBar = () => {
-    return (<nav className="navbar navbar-expand-lg bg-primary">
-        <div className="container-fluid">
-            <h1 clasName="navbar-brand" href="#">PC SHOP"</h1>
-            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul className="navbar-nav">
-                    <li className="nav-item">
-                        <a className="nav-link active" aria-current="page" href="#">Inicio</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">Sobre Nosotros</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">Contacto</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>)
+    return (
 
+        <Navbar bg="dark" expand="lg">
+            <Container>
+                <Navbar.Brand href="#home"><Badge bg="secondary">PC SHOP</Badge></Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="me-auto">
+                        <CartWidget />
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
+    );
 }
 
-export default NavBar
+export default NavBar;

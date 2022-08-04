@@ -1,20 +1,27 @@
-import './item.css'
-import ItemCount from '../contador/ItemCount'
-import img from '../../img/monitorlg.jpg'
+import getFetch from "../data/Data"
+import ItemList from "../itemList/ItemList"
+import { useEffect, useState } from 'react'
 
-const Item = () => {
+function ItemListContainer() {
+    const [data, setData] = useState([])
+    const { loading, setLoading } = useState(true)
+
+    useEffect(() => {
+        getFetch
+            .then((resp) => setData(resp))
+            .catch(err => console.log(err))
+            .finally(() => setLoading(false))
+    })
+
+
     return (
-        <div className="card">
-            <img src={img} className="card-img-top" alt="..." />
-            <div className="card-body">
-                <h5 className="card-title">Nombre Producto</h5>
-                <p className="card-text">Precio del producto</p>
-                <ItemCount />
-                <button className='btn btn-dark'>Agregar al carrito</button>
-            </div>
-        </div >
+        <div>
+            {
+                loading ? <h4>---Cargando---</h4> :
+                    data.map(prod => <ItemList key={prod.id} id={prod.id} nombre={prod.nombre} precio={prod.precio} imagen={prod.img} stock={prod.stock} />)
+            }
 
-    );
-}
+        </div>
+    )
 
-export default Item;
+} export default ItemListContainer
