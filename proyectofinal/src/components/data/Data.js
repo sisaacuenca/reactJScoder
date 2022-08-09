@@ -50,8 +50,8 @@ const data = [
 
   }
 ]
-
-const getFetch = new Promise((res, rej) => {
+export const getItem = ()=>{
+  return new Promise((res, rej) => {
   let condition = true
   if (condition) {
     setTimeout(() => {
@@ -61,4 +61,17 @@ const getFetch = new Promise((res, rej) => {
     rej(console.log("no hay datos"))
   }
 })
-export default getFetch;
+}
+
+export const getItemById =(id)=>{ 
+  return new Promise((res,rej)=>{
+  let condition =true
+  if(condition){
+    setTimeout(() => {
+      res(data.find(dat =>dat.id === id))
+    }, 2000)
+  }else{
+    rej(console.log("no data"))
+  }
+ })
+}

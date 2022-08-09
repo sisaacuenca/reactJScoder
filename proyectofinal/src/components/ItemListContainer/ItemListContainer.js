@@ -1,7 +1,7 @@
-import getFetch from "../data/Data"
+
 import ItemList from "../itemList/ItemList"
 import Spinner from 'react-bootstrap/Spinner';
-
+import {getItem} from "../data/Data"
 import CardGroup from 'react-bootstrap/CardGroup';
 
 import { useEffect, useState } from 'react'
@@ -10,8 +10,10 @@ function ItemListContainer() {
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
 
+    
+
     useEffect(() => {
-        getFetch
+        getItem()
             .then((resp) => setData(resp))
             .catch(err => console.log(err))
             .finally(() => setLoading(false))
@@ -25,7 +27,7 @@ function ItemListContainer() {
 
 
                     <Spinner animation="border" role="status">
-                        <span>Loading...</span>
+                        <span className="visually-hidden">Loading...</span>
                     </Spinner>
                     : data.map(prod => <ItemList key={prod.id} id={prod.id} nombre={prod.nombre} precio={prod.precio} imagen={prod.img} stock={prod.stock} />)
             }

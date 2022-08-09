@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 
 // hooks
 
-const ItemCount = (stock) => {
+const ItemCount = (props) => {
     const [contador, setContador] = useState(1);
 
 
@@ -16,7 +16,7 @@ const ItemCount = (stock) => {
 
 
     function agregarAlContador() {
-        if (contador <= stock) {
+        if (contador >= props.stock) {
             setContador(contador)
             console.log("sin stock")
         } else {

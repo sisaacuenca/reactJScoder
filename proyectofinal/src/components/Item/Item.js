@@ -1,9 +1,9 @@
 import './item.css'
+
 import ItemCount from '../ItemCount/ItemCount'
-
-
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 
 
 
@@ -21,6 +21,7 @@ function Item(prod) {
                 </Card.Text>
                 <ItemCount stock={prod.stock} />
                 <Button variant="dark">Agregar al Carrito</Button>
+                <Button variant="info" onClick={<ItemDetailContainer />}>Ver Detalle</Button>
                 <div>stock: {prod.stock}</div>
             </Card.Body>
         </Card>
