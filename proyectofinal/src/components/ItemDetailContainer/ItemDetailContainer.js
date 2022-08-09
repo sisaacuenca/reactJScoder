@@ -19,6 +19,6 @@ function ItemDetailContainer() {
    
 
 
-    return (<div>{ loading ? <Spinner /> : <ItemDetail producto={data} /> }</div>)
+    return (<div>{ loading ? <Spinner /> : <ItemDetail {...data} /> }</div>)
 
 } export default ItemDetailContainer;

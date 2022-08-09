@@ -1,10 +1,11 @@
+import { Modal } from "bootstrap"
 import Item from "../Item/Item"
 
 const ItemDetail = ({prod})=>{
     return(
-        <div>
+        <Modal.dialog>
             {prod.map(p=><Item key={p.id} {...p}/>)}
-        </div>
+        </Modal.dialog>
     )
 }
 export default ItemDetail
