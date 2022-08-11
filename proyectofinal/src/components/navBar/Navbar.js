@@ -16,9 +16,10 @@ const NavBar = () => {
                     <Nav className="me-auto ">
                         <Link to='/category/componentes'>Componentes</Link>
                         <Link to='/category/perifericos'>Perifericos</Link>
+                        <CartWidget className="d-flex justify-content-end" />
                     </Nav>
                 </Navbar.Collapse>
-                <CartWidget className="d-flex justify-content-end" />
+                
             </Container>
         </Navbar>
     );

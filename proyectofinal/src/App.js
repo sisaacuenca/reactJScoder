@@ -26,8 +26,11 @@ function App() {
     </div>
      );
     
-
- 
+/*
+return(
+  <div><Footer /></div>
+)
+*/ 
 }
 
 export default App;
