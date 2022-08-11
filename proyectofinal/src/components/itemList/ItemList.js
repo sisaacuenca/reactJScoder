@@ -1,9 +1,9 @@
 import React from "react"
 import Item from "../Item/Item"
-function ItemList(prod) {
+function ItemList( id, nombre, precio, img, stock) {
     return (
         <div>
-            <Item key={prod.id} id={prod.id} nombre={prod.nombre} precio={prod.precio} imagen={prod.imagen} stock={prod.stock} />
+            <Item key={id}  nombre={nombre} precio={precio} imagen={img} stock={stock} />
         </div>
     )
 } export default ItemList
