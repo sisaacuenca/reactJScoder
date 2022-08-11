@@ -10,24 +10,15 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 
 function App() {
 
- /* return(
-    <div>
-    <NavBar/>
-    <ItemListContainer/>  
-    <Footer/>
-    </div>
-    
-  )*/
-  
   return (
-    <div>
+    <div className="App">
       
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path='/' element={<ItemListContainer />}/>
-          <Route path='/category/:categoryId' element={<ItemListContainer/>}/>
-          <Route path='/item/:itemId' element={<ItemDetailContainer/>}/>
+          <Route path='/' element={<ItemListContainer />}/>        
+          <Route path='/category/:categoryId' element={<ItemListContainer />}/>      
+          <Route path="/detail/:itemId" element={<ItemDetailContainer/>}/>
         </Routes>
         <Footer />
       </BrowserRouter>
