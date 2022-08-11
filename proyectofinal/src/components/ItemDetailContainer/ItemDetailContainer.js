@@ -5,17 +5,18 @@ import {getItemById} from '../data/Data';
 import {useParams} from 'react-router-dom'
 
 function ItemDetailContainer() {
-
+    const {itemId} = useParams()
     const[data, setData]= useState()
     const [loading, setLoading] = useState(true)
-    const {productId} = useParams()
     
-    useEffect(() => {
-      getItemById(productId)
-      .then((resp) => setData(resp))
-      .catch(err => console.log(err))
+    
+    useEffect(()=>{
+      getItemById(itemId)
+      .then((res)=>setData(res))
+      .catch(err=>console.log(err))
       .finally(() => setLoading(false))
-  }, [productId])
+
+  }, [itemId]);
    
 
 

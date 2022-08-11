@@ -1,23 +1,33 @@
 
 import ItemList from "../itemList/ItemList"
 import Spinner from 'react-bootstrap/Spinner';
-import {getItem} from "../data/Data"
+import {getItem, getItemByCategory} from "../data/Data"
 import CardGroup from 'react-bootstrap/CardGroup';
+import { useParams } from "react-router-dom";
 
 import { useEffect, useState } from 'react'
 
 function ItemListContainer() {
+    
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
-
+    const {categoryId}=useParams()
     
 
     useEffect(() => {
-        getItem()
+        if(!categoryId){
+            getItem()
             .then((resp) => setData(resp))
             .catch(err => console.log(err))
             .finally(() => setLoading(false))
-    })
+        }else{
+            getItemByCategory(categoryId)
+            .then((resp) => setData(resp))
+            .catch(err => console.log(err))
+            .finally(() => setLoading(false))
+        }
+        
+    },[categoryId])
 
 
     return (
@@ -27,9 +37,9 @@ function ItemListContainer() {
 
 
                     <Spinner animation="border" role="status">
-                        <span className="visually-hidden">Loading...</span>
+                        
                     </Spinner>
-                    : data.map(prod => <ItemList key={prod.id} id={prod.id} nombre={prod.nombre} precio={prod.precio} imagen={prod.img} stock={prod.stock} />)
+                    : <ItemList data={data}/>
             }
 
         </CardGroup>

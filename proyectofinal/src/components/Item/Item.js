@@ -1,6 +1,6 @@
 import './item.css'
 
-import ItemCount from '../ItemCount/ItemCount'
+
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
@@ -9,20 +9,17 @@ import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 
 
 
-function Item(prod) {
+function Item(id, nombre, precio, stock, img) {
     return (
 
         <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={prod.imagen} />
+            <Card.Img variant="top" src={img} />
             <Card.Body>
-                <Card.Title>{prod.nombre}</Card.Title>
+                <Card.Title>{nombre}</Card.Title>
                 <Card.Text>
-                    ${prod.precio}
+                    ${precio}
                 </Card.Text>
-                <ItemCount stock={prod.stock} />
-                <Button variant="dark">Agregar al Carrito</Button>
                 <Button variant="info" onClick={<ItemDetailContainer />}>Ver Detalle</Button>
-                <div>stock: {prod.stock}</div>
             </Card.Body>
         </Card>
 

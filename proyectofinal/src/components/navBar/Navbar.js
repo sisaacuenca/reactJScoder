@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Badge from 'react-bootstrap/Badge';
-
+import { Link } from 'react-router-dom';
 const NavBar = () => {
     return (
 
@@ -14,9 +14,11 @@ const NavBar = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto ">
-                        <CartWidget className="d-flex justify-content-end" />
+                        <Link to='/category/componentes'>Componentes</Link>
+                        <Link to='/category/perifericos'>Perifericos</Link>
                     </Nav>
                 </Navbar.Collapse>
+                <CartWidget className="d-flex justify-content-end" />
             </Container>
         </Navbar>
     );

@@ -11,42 +11,48 @@ const data = [
     nombre: "MOUSE GENIUS DX-110 USB",
     img: mouse,
     precio: 550,
-    stock: 3
+    stock: 3,
+    categoria: "Periferico"
   },
   {
     id: 2,
     nombre: "TECLADO LOGITECH K210 QWERTY ESPAÑOL LATAM",
     img: teclado,
     precio: 1400,
-    stock: 1
+    stock: 1,
+    categoria: "Periferico"
   },
   {
     id: 3,
     nombre: "COOLER CPU COOLER MASTER HYPER 212 PARA ZOCALO INTEL",
     img: cooler,
     precio: 7000,
-    stock: 2
+    stock: 2,
+    categoria:"Componente"
   },
   {
     id: 4,
     nombre: "PROCESADOR INTEL CELERON G5905 3.5GHz",
     img: celeron,
     precio: 6000,
-    stock: 1
+    stock: 1,
+    categoria: "Componente"
   },
   {
     id: 5,
     nombre: "NVIDIA ASUS GEFORCE GT1030",
     img: placa,
     precio: 15000,
-    stock: 2
+    stock: 2,
+    categoria: "Componente"
   },
   {
     id: 6,
     nombre: "MONITOR LG 20 PULGADAS VGA HDMI",
     img: monitor,
     precio: 30000,
-    stock: 3
+    stock: 3,
+    categoria: "Periferico"
 
   }
 ]
@@ -61,6 +67,19 @@ export const getItem = ()=>{
     rej(console.log("no hay datos"))
   }
 })
+}
+
+export const getItemByCategory =(categoryId)=>{ 
+  return new Promise((res,rej)=>{
+  let condition =true
+  if(condition){
+    setTimeout(() => {
+      res(data.filter(dat =>dat.categoria === categoryId))
+    }, 2000)
+  }else{
+    rej(console.log("no data"))
+  }
+ })
 }
 
 export const getItemById =(id)=>{ 

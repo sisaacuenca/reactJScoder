@@ -1,11 +1,27 @@
 import { Modal } from "bootstrap"
-import Item from "../Item/Item"
+import ItemCount from "../ItemCount/ItemCount"
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
-const ItemDetail = ({prod})=>{
+const ItemDetail = ({ nombre, precio, stock, img})=>{
     return(
-        <Modal.dialog>
-            {prod.map(p=><Item key={p.id} {...p}/>)}
-        </Modal.dialog>
+        <Modal>
+        <div>
+        <Card style={{ width: '18rem' }}>
+            <Card.Img variant="top" src={img} />
+            <Card.Body>
+                <Card.Title>{nombre}</Card.Title>
+                <Card.Text>
+                    ${precio}
+                </Card.Text>
+                <ItemCount stock={stock} />
+                <Button variant="dark">Agregar al Carrito</Button>
+                <div>stock: {stock}</div>
+            </Card.Body>
+        </Card>
+
+        </div>
+        </Modal>
     )
 }
 export default ItemDetail
