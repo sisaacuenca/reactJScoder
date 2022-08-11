@@ -39,7 +39,7 @@ function ItemListContainer() {
                     <Spinner animation="border" role="status">
                         
                     </Spinner>
-                    : data.map(dat => <ItemList data={data}/>)
+                    : <ItemList data={data}/>
             }
 
         </CardGroup>
