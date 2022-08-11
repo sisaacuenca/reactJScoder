@@ -9,9 +9,19 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
 function App() {
+
+ /* return(
+    <div>
+    <NavBar/>
+    <ItemListContainer/>  
+    <Footer/>
+    </div>
+    
+  )*/
   
   return (
     <div>
+      
       <BrowserRouter>
         <NavBar />
         <Routes>
@@ -21,9 +31,12 @@ function App() {
         </Routes>
         <Footer />
       </BrowserRouter>
+      
     </div>
+     );
+    
 
-  );
+ 
 }
 
 export default App;
