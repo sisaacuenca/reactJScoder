@@ -11,6 +11,7 @@ function ItemListContainer() {
     
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
+    
     const {categoryId}=useParams()
     
 
